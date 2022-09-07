@@ -15,6 +15,8 @@ public class Restaurant {
         this.location = location;
         this.openingTime = openingTime;
         this.closingTime = closingTime;
+        this.menu.add(new Item("Idli", 20));
+        this.menu.add(new Item("dosa",50));
     }
 
     public void setClosingTime(LocalTime closingTime) {
@@ -77,5 +79,12 @@ public class Restaurant {
 
     public String getName() {
         return name;
+    }
+    public int getSelectedValue(List<Item> item){
+        int totalValue =0;
+        for (Item myitem : item){
+            totalValue += myitem.getPrice();
+        }
+        return totalValue;
     }
 }

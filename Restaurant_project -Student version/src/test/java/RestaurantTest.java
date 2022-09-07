@@ -43,7 +43,7 @@ class RestaurantTest {
     public void when_selected_the_items_it_shows_the_overall_total_of_the_item_selected(){
         newRestaurant();
         newValue = restaurant.getMenu();
-        assertEquals(180, restaurant.getSelectedValue(newValue));
+        assertEquals(250, restaurant.getSelectedValue(newValue));
     }
     @Test
     public void adding_item_to_menu_should_increase_menu_size_by_1(){
@@ -81,4 +81,14 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void for_displaying_the_display_value(){
+        LocalTime openingTime = LocalTime.parse("10:30:00");
+        LocalTime closingTime = LocalTime.parse("22:00:00");
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+
+        restaurant.displayDetails();
+    }
 }
